@@ -3,17 +3,17 @@ const ExtraFunctions = (props) => {
     <div className="extraFunctions">
       <button
         className="buttons word"
-        value="inv"
-        onClick={props.extraFunctions}
-      >
-        INV
-      </button>
-      <button
-        className="buttons word"
-        value="rad"
+        value="radians"
         onClick={props.extraFunctions}
       >
         RAD
+      </button>
+      <button
+        className="buttons word"
+        value="degrees"
+        onClick={props.extraFunctions}
+      >
+        DEG
       </button>
       <button
         className="buttons word"
@@ -35,6 +35,13 @@ const ExtraFunctions = (props) => {
         onClick={props.extraFunctions}
       >
         tan
+      </button>
+      <button
+        className="buttons word"
+        value="inv"
+        onClick={props.extraFunctions}
+      >
+        INV
       </button>
       <button
         className="buttons"

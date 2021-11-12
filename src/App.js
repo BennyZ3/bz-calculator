@@ -13,6 +13,7 @@ class App extends react.Component {
       operation: "",
       result: "0",
       inputs: [],
+      mode: "radians",
     };
   }
 
@@ -127,7 +128,47 @@ class App extends react.Component {
       case "inv":
         this.setState({ displayValue: 1 / Number(current) });
         break;
-      case "rad":
+      case "radians":
+        this.setState({ mode: "radians" });
+        break;
+      case "degrees":
+        this.setState({ mode: "degrees" });
+        break;
+      case "sin":
+        if (this.state.mode === "radians") {
+          this.setState({ displayValue: Math.sin(Number(current)) });
+        } else {
+          this.setState({
+            displayValue: Math.sin((Number(current) / 180) * Math.PI).toFixed(
+              6
+            ),
+          });
+        }
+        break;
+      case "cos":
+        if (this.state.mode === "radians") {
+          this.setState({ displayValue: Math.cos(Number(current)) });
+        } else {
+          this.setState({
+            displayValue: Math.cos((Number(current) / 180) * Math.PI).toFixed(
+              6
+            ),
+          });
+        }
+        break;
+      case "tan":
+        if (this.state.mode === "radians") {
+          this.setState({ displayValue: Math.tan(Number(current)) });
+        } else {
+          this.setState({
+            displayValue: Math.tan((Number(current) / 180) * Math.PI).toFixed(
+              6
+            ),
+          });
+        }
+        break;
+
+      default:
     }
   };
 
