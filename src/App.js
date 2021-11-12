@@ -123,10 +123,10 @@ class App extends react.Component {
   };
 
   extraFunctions = (event) => {
-    const current = this.state.displayValue;
+    const current = Number(this.state.displayValue);
     switch (event.target.value) {
       case "inv":
-        this.setState({ displayValue: 1 / Number(current) });
+        this.setState({ displayValue: 1 / current });
         break;
       case "radians":
         this.setState({ mode: "radians" });
@@ -136,38 +136,58 @@ class App extends react.Component {
         break;
       case "sin":
         if (this.state.mode === "radians") {
-          this.setState({ displayValue: Math.sin(Number(current)) });
+          this.setState({ displayValue: Math.sin(current) });
         } else {
           this.setState({
-            displayValue: Math.sin((Number(current) / 180) * Math.PI).toFixed(
-              6
-            ),
+            displayValue: Math.sin((current / 180) * Math.PI).toFixed(6),
           });
         }
         break;
       case "cos":
         if (this.state.mode === "radians") {
-          this.setState({ displayValue: Math.cos(Number(current)) });
+          this.setState({ displayValue: Math.cos(current) });
         } else {
           this.setState({
-            displayValue: Math.cos((Number(current) / 180) * Math.PI).toFixed(
-              6
-            ),
+            displayValue: Math.cos((current / 180) * Math.PI).toFixed(6),
           });
         }
         break;
       case "tan":
         if (this.state.mode === "radians") {
-          this.setState({ displayValue: Math.tan(Number(current)) });
+          this.setState({ displayValue: Math.tan(current) });
         } else {
           this.setState({
-            displayValue: Math.tan((Number(current) / 180) * Math.PI).toFixed(
-              6
-            ),
+            displayValue: Math.tan((current / 180) * Math.PI).toFixed(6),
           });
         }
         break;
-
+      case "percent":
+        this.setState({ displayValue: current / 100 });
+        break;
+      case "ln":
+        this.setState({ displayValue: Math.log(current) });
+        break;
+      case "log":
+        this.setState({ displayValue: Math.log(current) / Math.log(10) });
+        break;
+      case "sqrt":
+        this.setState({ displayValue: Math.sqrt(current) });
+        break;
+      case "square":
+        this.setState({ displayValue: current * current });
+        break;
+      case "exponent":
+        this.setState({ result: Math.pow(this.state.result, current) });
+        break;
+      case "pi":
+        this.setState({ displayValue: Math.PI });
+        break;
+      case "e":
+        this.setState({ displayValue: Math.E });
+        break;
+      case "sign":
+        this.setState({ displayValue: current * -1 });
+        break;
       default:
     }
   };
@@ -205,8 +225,9 @@ class App extends react.Component {
         <h1>BZ Calculator App</h1>
         <div className="display">
           <p className="resultDisplay">{this.state.result}</p>
+          <p className="mode">{this.state.mode}</p>
           {/* <p className="inputs">{this.state.inputs.join("")}</p> */}
-          <p>{this.state.displayValue}</p>
+          <p className="current">{this.state.displayValue}</p>
         </div>
         <ExtraFunctions extraFunctions={this.extraFunctions} />
         <div className="container">

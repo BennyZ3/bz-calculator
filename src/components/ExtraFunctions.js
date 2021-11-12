@@ -62,7 +62,7 @@ const ExtraFunctions = (props) => {
         value="log"
         onClick={props.extraFunctions}
       >
-        log
+        log10
       </button>
       <button
         className="buttons word"
@@ -97,12 +97,8 @@ const ExtraFunctions = (props) => {
       <button className="buttons" value="" onClick={props.extraFunctions}>
         )
       </button> */}
-      <button
-        className="buttons"
-        value="factorial"
-        onClick={props.extraFunctions}
-      >
-        !
+      <button className="buttons" value="sign" onClick={props.extraFunctions}>
+        +/-
       </button>
     </div>
   );

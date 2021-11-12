@@ -52,11 +52,17 @@ p {
   width: 320px;
   border: 1px solid black;
   margin-left: 35%;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
 }
 .resultDisplay {
   text-align: left;
   font-size: 18px;
 }
-.inputs {
+.current {
+  grid-column: 1 / span 2;
+  word-wrap: break-word;
+}
+.mode {
   font-size: 14px;
 }
