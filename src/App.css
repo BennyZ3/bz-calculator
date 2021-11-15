@@ -2,7 +2,7 @@
   text-align: center;
 }
 .container {
-  margin-left: 35%;
+  margin-left: 37.5%;
   display: grid;
   grid-template-columns: 3fr 2fr;
   width: 325px;
@@ -27,7 +27,7 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   width: 320px;
-  margin-left: 35%;
+  margin-left: 37.5%;
   background-color: #4285f4;
   border: 1px solid blue;
 }
@@ -51,7 +51,7 @@ p {
 .display {
   width: 320px;
   border: 1px solid black;
-  margin-left: 35%;
+  margin-left: 37.5%;
   display: grid;
   grid-template-columns: 3fr 1fr;
 }
