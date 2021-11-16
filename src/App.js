@@ -3,6 +3,7 @@ import "./App.css";
 import BaseFunctions from "./components/BaseFunctions";
 import ExtraFunctions from "./components/ExtraFunctions";
 import Numbers from "./components/Numbers";
+import TipButtons from "./components/TipButtons";
 
 class App extends react.Component {
   constructor() {
@@ -15,6 +16,7 @@ class App extends react.Component {
       inputs: [],
       mode: "radians",
       memory: "",
+      tip: "0",
     };
   }
 
@@ -232,27 +234,46 @@ class App extends react.Component {
   memory = () => {
     this.setState({ displayValue: this.state.memory });
   };
+  tipUpdate = (event) => {
+    this.setState({ tip: event.target.value });
+  };
+  tipGenerator = (event) => {
+    event.preventDefault();
+    this.setState({
+      result: this.state.displayValue * (1 + this.state.tip / 100),
+    });
+  };
   render() {
     return (
-      <div className="App">
-        <h1>BZ Calculator App</h1>
-        <div className="display">
-          <p className="resultDisplay">{this.state.result}</p>
-          <p className="long">{this.state.mode}</p>
-          {/* <p className="inputs">{this.state.inputs.join("")}</p> */}
-          <p className="current">{this.state.displayValue}</p>
+      <>
+        <div className="App">
+          <h1>BZ Calculator App</h1>
+          <div className="display">
+            <p className="resultDisplay">{this.state.result}</p>
+            <p className="long">{this.state.mode}</p>
+            {/* <p className="inputs">{this.state.inputs.join("")}</p> */}
+            <p className="current">{this.state.displayValue}</p>
+          </div>
+          <ExtraFunctions extraFunctions={this.extraFunctions} />
+          <div className="container">
+            <Numbers numberPress={this.numberPress} memory={this.memory} />
+            <BaseFunctions
+              operation={this.operation}
+              clear={this.clear}
+              back={this.backSpace}
+              resultButton={this.resultButton}
+            />
+          </div>
         </div>
-        <ExtraFunctions extraFunctions={this.extraFunctions} />
-        <div className="container">
-          <Numbers numberPress={this.numberPress} memory={this.memory} />
-          <BaseFunctions
-            operation={this.operation}
-            clear={this.clear}
-            back={this.backSpace}
-            resultButton={this.resultButton}
+        <div className="tipsbox">
+          <TipButtons
+            tipGenerator={this.tipGenerator}
+            tip={this.state.tip}
+            current={this.state.displayValue}
+            tipUpdate={this.tipUpdate}
           />
         </div>
-      </div>
+      </>
     );
   }
 }

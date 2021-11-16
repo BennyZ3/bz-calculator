@@ -76,3 +76,12 @@ p {
 .long {
   font-size: 14px;
 }
+
+.tips {
+  border: 1px solid green;
+  height: 250px;
+  width: 200px;
+  position: absolute;
+  left: 70%;
+  top: 150px;
+}
