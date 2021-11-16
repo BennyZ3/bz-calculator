@@ -238,7 +238,7 @@ class App extends react.Component {
         <h1>BZ Calculator App</h1>
         <div className="display">
           <p className="resultDisplay">{this.state.result}</p>
-          <p className="mode">{this.state.mode}</p>
+          <p className="long">{this.state.mode}</p>
           {/* <p className="inputs">{this.state.inputs.join("")}</p> */}
           <p className="current">{this.state.displayValue}</p>
         </div>

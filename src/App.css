@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  border: #4285f4 10px solid;
+  border-radius: 30px;
+  width: 400px;
+  margin-left: 35%;
+  background-color: lightslategray;
 }
 .container {
   margin-left: 10%;
@@ -57,6 +62,7 @@ p {
   margin-left: 10%;
   display: grid;
   grid-template-columns: 3fr 1fr;
+  background-color: lightskyblue;
 }
 .resultDisplay {
   text-align: left;
@@ -66,15 +72,7 @@ p {
   grid-column: 1 / span 2;
   word-wrap: break-word;
 }
-.mode {
-  font-size: 14px;
-}
+
 .long {
   font-size: 14px;
-}
-.App {
-  border: #4285f4 10px solid;
-  border-radius: 30px;
-  width: 400px;
-  margin-left: 35%;
 }
