@@ -2,10 +2,10 @@ const TipButtons = (props) => {
   return (
     <div className="tips">
       <h2>Tip Calc</h2>
-      <p className="long">Current: %{props.tip}</p>
       <p className="long">
         Value: {Math.round(props.current * props.tip) / 100}
       </p>
+      <p className="long">Current: % {props.tip}</p>
       <button className="tip" onClick={props.tipUpdate} value="10">
         Poor
       </button>
