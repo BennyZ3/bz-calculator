@@ -16,7 +16,9 @@ const BaseFunctions = (props) => {
       <button className="buttons" value="subtract" onClick={props.operation}>
         -
       </button>
-      <div />
+      <button className="buttons word" onClick={props.resultButton}>
+        Result
+      </button>
       <button className="buttons" value="add" onClick={props.operation}>
         +
       </button>

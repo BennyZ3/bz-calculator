@@ -14,6 +14,7 @@ class App extends react.Component {
       result: "0",
       inputs: [],
       mode: "radians",
+      memory: "",
     };
   }
 
@@ -128,11 +129,15 @@ class App extends react.Component {
       case "inv":
         this.setState({ displayValue: 1 / current });
         break;
-      case "radians":
-        this.setState({ mode: "radians" });
+      case "mem":
+        this.setState({ memory: current });
         break;
-      case "degrees":
-        this.setState({ mode: "degrees" });
+      case "mode":
+        if (this.state.mode === "radians") {
+          this.setState({ mode: "degrees" });
+        } else {
+          this.setState({ mode: "radians" });
+        }
         break;
       case "sin":
         if (this.state.mode === "radians") {
@@ -219,6 +224,14 @@ class App extends react.Component {
       });
     }
   };
+
+  resultButton = () => {
+    this.setState({ displayValue: this.state.result });
+  };
+
+  memory = () => {
+    this.setState({ displayValue: this.state.memory });
+  };
   render() {
     return (
       <div className="App">
@@ -231,11 +244,12 @@ class App extends react.Component {
         </div>
         <ExtraFunctions extraFunctions={this.extraFunctions} />
         <div className="container">
-          <Numbers numberPress={this.numberPress} />
+          <Numbers numberPress={this.numberPress} memory={this.memory} />
           <BaseFunctions
             operation={this.operation}
             clear={this.clear}
             back={this.backSpace}
+            resultButton={this.resultButton}
           />
         </div>
       </div>

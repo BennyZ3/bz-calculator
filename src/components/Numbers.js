@@ -34,6 +34,9 @@ const Numbers = (props) => {
       <button className="buttons" value="." onClick={props.numberPress}>
         .
       </button>
+      <button className="buttons word" onClick={props.memory}>
+        mem
+      </button>
     </div>
   );
 };

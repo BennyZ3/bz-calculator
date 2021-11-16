@@ -2,18 +2,18 @@ const ExtraFunctions = (props) => {
   return (
     <div className="extraFunctions">
       <button
-        className="buttons word"
-        value="radians"
+        className="buttons word long"
+        value="mem"
         onClick={props.extraFunctions}
       >
-        RAD
+        Save Mem
       </button>
       <button
-        className="buttons word"
-        value="degrees"
+        className="buttons word long"
+        value="mode"
         onClick={props.extraFunctions}
       >
-        DEG
+        RAD/ DEG
       </button>
       <button
         className="buttons word"
