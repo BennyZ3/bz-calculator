@@ -10,10 +10,10 @@ class App extends react.Component {
     super();
     this.state = {
       displayValue: "0",
-      previousValue: "0",
+      // previousValue: "0",
       operation: "",
       result: "0",
-      inputs: [],
+      // inputs: [],
       mode: "radians",
       memory: "",
       tip: "0",
@@ -21,7 +21,7 @@ class App extends react.Component {
   }
 
   numberPress = (event) => {
-    this.state.inputs.push(event.target.textContent);
+    // this.state.inputs.push(event.target.textContent);
     if (this.state.displayValue === "0") {
       if (event.target.value === ".") {
         this.setState({ displayValue: "0." });
@@ -48,7 +48,7 @@ class App extends react.Component {
     let current = this.state.displayValue;
     const operation = this.state.operation;
     const result = this.state.result;
-    this.state.inputs.push(event.target.textContent);
+    // this.state.inputs.push(event.target.textContent);
     if (result === "0") {
       this.setState({
         previousValue: Number(current),
@@ -240,7 +240,9 @@ class App extends react.Component {
   tipGenerator = (event) => {
     event.preventDefault();
     this.setState({
-      result: this.state.displayValue * (1 + this.state.tip / 100),
+      result:
+        Math.round(this.state.displayValue * (1 + this.state.tip / 100) * 100) /
+        100,
     });
   };
   render() {
@@ -249,10 +251,14 @@ class App extends react.Component {
         <div className="App">
           <h1>BZ Calculator App</h1>
           <div className="display">
-            <p className="resultDisplay">{this.state.result}</p>
+            <p className="resultDisplay">
+              {this.state.result.toLocaleString("en-US")}
+            </p>
             <p className="long">{this.state.mode}</p>
             {/* <p className="inputs">{this.state.inputs.join("")}</p> */}
-            <p className="current">{this.state.displayValue}</p>
+            <p className="current">
+              {this.state.displayValue.toLocaleString("en-US")}
+            </p>
           </div>
           <ExtraFunctions extraFunctions={this.extraFunctions} />
           <div className="container">

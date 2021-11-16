@@ -3,7 +3,9 @@ const TipButtons = (props) => {
     <div className="tips">
       <h2>Tip Calc</h2>
       <p className="long">Current: %{props.tip}</p>
-      <p className="long">Value: {(props.current * props.tip) / 100}</p>
+      <p className="long">
+        Value: {Math.round(props.current * props.tip) / 100}
+      </p>
       <button className="tip" onClick={props.tipUpdate} value="10">
         Poor
       </button>
@@ -18,6 +20,13 @@ const TipButtons = (props) => {
       </button>
       <button className="tip" onClick={props.tipUpdate} value="20">
         Great
+      </button>
+      <button
+        className="tip"
+        onClick={props.tipUpdate}
+        value={Math.round(Math.random() * 10000) / 100}
+      >
+        Random
       </button>
       <form>
         <label>
